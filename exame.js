@@ -91,9 +91,25 @@ var prova = new Exam(gabarito, pesos);
 prova.add(new Answer("Chico", ["c", "e", "a", "b", "b"]));
 prova.add(new Answer("Maria", ["a", "b", "a", "c", "d"]));
 prova.add(new Answer("Felipe", ["a", "b", "b", "c", "d"]));
-prova.avg();
-console.log("Menores notas:", prova.min(1));
-console.log("Maiores notas:", prova.max(2));
-console.log("Notas menores que 5:", prova.lt(5));
-console.log("Notas maiores que 7:", prova.gt(7));
-console.log("Média das notas:", prova.avg());
+console.log("=== RESULTADOS DA PROVA ===");
+console.log(" Menores notas:");
+prova.min(1).forEach(function (_a) {
+    var nome = _a[0], nota = _a[1];
+    return console.log(" - ".concat(nome, ": ").concat(nota));
+});
+console.log("\n Maiores notas:");
+prova.max(2).forEach(function (_a) {
+    var nome = _a[0], nota = _a[1];
+    return console.log(" - ".concat(nome, ": ").concat(nota));
+});
+console.log("\n Notas menores que 5:");
+prova.lt(5).forEach(function (_a) {
+    var nome = _a[0], nota = _a[1];
+    return console.log(" - ".concat(nome, ": ").concat(nota));
+});
+console.log("\n Notas maiores que 7:");
+prova.gt(7).forEach(function (_a) {
+    var nome = _a[0], nota = _a[1];
+    return console.log(" - ".concat(nome, ": ").concat(nota));
+});
+console.log("\n Média das notas:", prova.avg().toFixed(2));
